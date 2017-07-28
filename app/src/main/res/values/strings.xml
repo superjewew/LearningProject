@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Learning Project</string>
     <string name="hello">Hello!</string>
+    <string name="hint">Editor #%d</string>
 </resources>

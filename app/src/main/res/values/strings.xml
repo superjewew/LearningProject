@@ -2,4 +2,7 @@
     <string name="app_name">Learning Project</string>
     <string name="hello">Hello!</string>
     <string name="hint">Editor #%d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -2,6 +2,7 @@ package norman.com.learningproject;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setupStrictMode();
 
         ViewPager pager = (ViewPager) findViewById(R.id.pager);
 
@@ -41,5 +44,18 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
             return inflater.inflate(getArguments().getInt(ARG_LAYOUT), container, false);
         }
+    }
+
+    private void setupStrictMode() {
+        StrictMode.ThreadPolicy.Builder builder =
+                new StrictMode.ThreadPolicy.Builder()
+                        .detectAll()
+                        .penaltyLog();
+
+        if(BuildConfig.DEBUG) {
+            builder.penaltyFlashScreen();
+        }
+
+        StrictMode.setThreadPolicy(builder.build());
     }
 }
